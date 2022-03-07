@@ -1,22 +1,33 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '../styles/Home.module.css';
-import { useTranslations } from 'use-intl';
+// import { useTranslations } from 'use-intl';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 
-// pages/index.js
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      // You can get the messages from anywhere you like. The recommended
-      // pattern is to put them in JSON files separated by language and read
-      // the desired one based on the `locale` received from Next.js.
-      messages: (await import(`../messages/index/${locale}.json`)).default,
+      ...(await serverSideTranslations(locale, ['common'])),
+      // Will be passed to the page component as props
     },
   };
 }
 
+// pages/index.js
+// export async function getStaticProps({ locale }) {
+//   return {
+//     props: {
+//       // You can get the messages from anywhere you like. The recommended
+//       // pattern is to put them in JSON files separated by language and read
+//       // the desired one based on the `locale` received from Next.js.
+//       messages: (await import(`../messages/index/${locale}.json`)).default,
+//     },
+//   };
+// }
+
 export default function Home() {
-  const t = useTranslations('Index');
+  const { t } = useTranslation('common');
   return (
     <div className={styles.container}>
       <Head>
@@ -26,7 +37,8 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>{t('title')}</h1>
+        {t('business')}
+        {/* <h1 className={styles.title}>{t('title')}</h1> */}
 
         <p className={styles.description}>
           Get started by editing <code className={styles.code}>pages/index.js</code>

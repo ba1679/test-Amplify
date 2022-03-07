@@ -1,0 +1,12 @@
+{
+  "Index": {
+    "title": "首頁",
+    "description": "這是首頁"
+  },
+  "LocaleSwitcher": {
+    "switchLocale": "Switch to {locale, select, de {German} en {English}}"
+  },
+  "PageLayout": {
+    "pageTitle": "next-intl"
+  }
+}

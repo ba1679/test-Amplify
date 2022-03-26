@@ -1,4 +1,3 @@
-import '../styles/globals.css'
 import { NextIntlProvider } from 'next-intl'
 // import { appWithTranslation } from 'next-i18next';
 

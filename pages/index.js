@@ -29,7 +29,7 @@ export async function getStaticProps({ locale }) {
 export default function Home() {
   // const { t } = useTranslation('common');
   const t = useTranslations('Index')
-  console.log(process.env.NODE_ENV)
+  console.log(process.env.NODE_ENV, process.env.NEXT_PUBLIC_BUILD_ENV)
   return (
     <div className={styles.container}>
       <Head>

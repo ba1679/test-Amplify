@@ -7,5 +7,8 @@ module.exports = {
   i18n: {
     locales: ['zh-TW', 'en'],
     defaultLocale: 'zh-TW'
+  },
+  env: {
+    NEXT_PUBLIC_BUILD_ENV: process.env.NEXT_PUBLIC_BUILD_ENV
   }
 }
